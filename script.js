@@ -116,3 +116,25 @@ document.getElementById('clear-btn').addEventListener('click', function () {
 });
 
 
+// Select all copy buttons
+const copyButtons = document.querySelectorAll('.copy-btn');
+
+copyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Find the closest parent card
+        const card = button.closest('.w-full');
+
+        // Find the phone number inside this card
+        const phoneNumber = card.querySelector('h1[class$="-call"]').innerText;
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(phoneNumber)
+            .then(() => {
+                alert(`Copied: ${phoneNumber}`);
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    });
+});
+
