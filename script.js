@@ -118,6 +118,8 @@ document.getElementById('clear-btn').addEventListener('click', function () {
 
 // Select all copy buttons
 const copyButtons = document.querySelectorAll('.copy-btn');
+let copiedCount = 0;
+const primaryCopyButton = document.getElementById('copy-button-primary');
 
 copyButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -126,7 +128,8 @@ copyButtons.forEach(button => {
 
         // Find the phone number inside this card
         const phoneNumber = card.querySelector('h1[class$="-call"]').innerText;
-
+        copiedCount++;
+        primaryCopyButton.innerHTML = `${copiedCount}`;
         // Copy to clipboard
         navigator.clipboard.writeText(phoneNumber)
             .then(() => {
