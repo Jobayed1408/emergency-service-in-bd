@@ -15,7 +15,7 @@ for (let heart of cardHearts) {
 // alert part
 const callList = [];
 let coinCount = 100;
-
+// function for reduce code reusability
 function makeCall(service, number) {
     if (coinCount < 20) {
         alert('Not enough coins to make a call. Please recharge your coins.');
@@ -57,7 +57,7 @@ function callHistory(c) {
 
 }
 
-// national-call-id
+// Event listeners for buttons
 document.getElementById('national-call-id').addEventListener('click', function () {
     const serviceName = document.querySelector('.national-service-name').innerText;
     const serviceCall = document.querySelector('.national-service-call').innerText;
@@ -110,7 +110,6 @@ document.getElementById('dudok-service-call-id').addEventListener('click', funct
 });
 
 // clear button functionality
-
 document.getElementById('clear-btn').addEventListener('click', function () {
     callList.length = 0;
     const callHistoryContainer = document.querySelector('.call-history');
