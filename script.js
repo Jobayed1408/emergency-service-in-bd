@@ -5,6 +5,8 @@ let count = 0;
 
 for (let heart of cardHearts) {
     heart.addEventListener('click', function () {
+        heart.classList.toggle("hover:bg-black-400"); 
+        heart.classList.toggle("hover:scale-110");   
         count++;
         document.getElementById('nav-heart').innerText = count;
     });
